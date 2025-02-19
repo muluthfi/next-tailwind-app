@@ -17,7 +17,7 @@ export default function Transaction({ get }) {
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold mb-4 transition-opacity duration-700 ease-in opacity-100 hover:opacity-0">Transactions</h1>
-            <table className="min-w-full border-collapse border-black">
+            <table className="min-w-full border-collapse border-black transition-opacity duration-700 ease-in opacity-100 hover:opacity-0">
                 <thead>
                     <tr>
                         <th className="border py-2 text-center">Date</th>
@@ -28,9 +28,9 @@ export default function Transaction({ get }) {
                 <tbody>
                     {get.map((data) => (
                         <tr key={data._id}>
-                            <td className="border px-4 py-2">{data.date}</td>
-                            <td className="border px-4 py-2">{data.amount}</td>
-                            <td className="border px-4 py-2">{data.description}</td>
+                            <td className="border px-4 py-2 text-center">{data.date}</td>
+                            <td className="border px-4 py-2 text-center">{data.amount}</td>
+                            <td className="border px-4 py-2 text-center">{data.description}</td>
                         </tr>
                     ))}
                 </tbody>
