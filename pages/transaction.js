@@ -1,16 +1,26 @@
 import react from 'react';
 import { render } from 'react-dom';
 import { useState } from 'react';
+import { redirect } from 'next/dist/server/api-utils';
 
 export async function getServerSideProps() {
     const response = await fetch("http://localhost:3000/transaction");
+    const headers = response.headers;
     const datas = await response.json();
+    if(headers!=200){
+        return {
+            error: {
+                status: headers,
+                message: headers.message,
+            }
+        }
+    }
 
     return {
         props: {
             get: datas,
         },
-    };
+    }    
 }
 
 export default function Transaction({ get }) {
